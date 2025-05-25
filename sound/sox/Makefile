@@ -31,7 +31,7 @@ TARGET_LDFLAGS+= \
 define Package/sox
   SECTION:=sound
   CATEGORY:=Sound
-  DEPENDS:=+BUILD_PATENTED:lame-lib +BUILD_PATENTED:libmad +BUILD_PATENTED:libid3tag \
+  DEPENDS:=+BUILD_PATENTED:libmad +BUILD_PATENTED:libid3tag \
 		+libvorbis +libvorbisidec +alsa-lib +libsndfile +libflac \
 		+libmagic +libpng +libffmpeg
   TITLE:=Sox is a general purpose sound converter/player/recorder

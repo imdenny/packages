@@ -474,14 +474,14 @@ ifeq ($(BUILD_VARIANT),full)
 		$(if $(CONFIG_PACKAGE_libopus),--enable-libopus)
   ifeq ($(CONFIG_SOFT_FLOAT),y)
 	FFMPEG_CONFIGURE+= \
-		--enable-small \
+		--enable-small  --disable-libshine\
 		\
 		$(if $(CONFIG_PACKAGE_shine),--enable-libshine)
   else
 	ifeq ($(ARCH),x86_64)
 		FFMPEG_CONFIGURE+= --enable-hardcoded-tables
 	else
-		FFMPEG_CONFIGURE+= --enable-small
+		FFMPEG_CONFIGURE+= --enable-small --disable-libshine
 	endif
 	FFMPEG_CONFIGURE+= $(if $(CONFIG_PACKAGE_lame-lib),--enable-libmp3lame)
   endif
@@ -508,7 +508,7 @@ ifeq ($(BUILD_VARIANT),custom)
 		--enable-hardcoded-tables
   else
 	FFMPEG_CONFIGURE+= \
-		--enable-small
+		--enable-small --disable-libshine
   endif
 
   ifeq ($(CONFIG_FFMPEG_CUSTOM_GPL),y)
@@ -584,7 +584,7 @@ ifeq ($(BUILD_VARIANT),audio-dec)
 	)
 
   FFMPEG_CONFIGURE+= \
-	--enable-small \
+	--enable-small  --disable-libshine\
 	--enable-gpl \
 	\
 	--disable-programs \
@@ -607,7 +607,7 @@ ifeq ($(BUILD_VARIANT),mini)
 	)
 
   FFMPEG_CONFIGURE+= \
-	--enable-small \
+	--enable-small  --disable-libshine\
 	\
 	--disable-programs \
 	--disable-avdevice \

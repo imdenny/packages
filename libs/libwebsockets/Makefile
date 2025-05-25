@@ -31,6 +31,9 @@ CMAKE_OPTIONS += $(if $(CONFIG_PACKAGE_kmod-ipv6),,-DLWS_IPV6=)
 
 CMAKE_OPTIONS += -DLWS_WITHOUT_TESTAPPS=ON
 
+# 避免 OpenSSL 的 ERR_remove_state 被弃用引起的编译错误
+CMAKE_OPTIONS += -DCMAKE_C_FLAGS="-Wno-error=deprecated-declarations"
+
 # other options worth noting
 # CMAKE_OPTIONS += -DLWS_WITHOUT_EXTENSIONS=ON
 # CMAKE_OPTIONS += -DLWS_WITHOUT_DAEMONIZE=ON

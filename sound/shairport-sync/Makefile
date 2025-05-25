@@ -9,11 +9,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=shairport-sync
-PKG_VERSION:=2.1.15
+PKG_VERSION:=4.3.6
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/mikebrady/shairport-sync.git
+PKG_SOURCE_URL:=https://github.com/mikebrady/shairport-sync.git
 PKG_SOURCE_VERSION:=$(PKG_VERSION)
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
@@ -39,7 +39,7 @@ define Package/shairport-sync
   SECTION:=sound
   CATEGORY:=Sound
   TITLE:=iPhone/iTunes compatible audio player
-  DEPENDS:= +libpthread +libopenssl +libavahi-client +alsa-lib +libdaemon +libsoxr +libpopt
+  DEPENDS:= +libpthread +libopenssl +libavahi-client +alsa-lib +libdaemon +libsoxr +libpopt +libconfig +libstdcpp
   MAINTAINER:=Mike Brady <mikebrady@eircom.net>
 endef
 
